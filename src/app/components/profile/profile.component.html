@@ -1,0 +1,22 @@
+<div class="animated fadeIn Fast">
+
+  <div class="container">
+    <div class="row" *ngIf='profile'>
+      <div class="col-md-3">
+        <img [src]='profile.picture' class="img-fluid" width="200px" height="200px" style="border-radius: 50%;">
+      </div>
+      <div class="col-md-4">
+        <h2>{{profile.name}}</h2>
+      </div>
+    </div>
+
+    <div class="col-md-10">
+      <mat-tab-group>
+        <mat-tab label="Actividad"> <app-my-activity></app-my-activity> </mat-tab>
+        <mat-tab label="Información"> <app-my-info></app-my-info></mat-tab>
+        <mat-tab label="Mis escritos"> <app-my-stories></app-my-stories>  </mat-tab>
+      </mat-tab-group>
+    </div>  
+  </div>
+  
+</div>

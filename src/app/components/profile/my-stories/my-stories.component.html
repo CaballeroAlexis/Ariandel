@@ -1,0 +1,31 @@
+<div class="card" *ngFor="let  story of stories let i=index">
+    <div class="card-body">
+        <div class="row">
+            <div class=" col-3">
+                <img src="{{story.img}}" width="140" height="140">
+            </div>
+            <div class=" col-9">
+                <div class="row">
+                    <h4 class="card-title">{{story.title}}</h4>
+                </div>
+                <div class="row">
+                    <a style="font-size: 14px" href="#">{{story.user}}</a> 
+                </div>              
+                <div class="row">
+                    <p class="card-text" style="overflow:hidden;">{{story.text}}</p>
+                </div>
+                <div class="row">
+
+                </div>          
+                <div class="row">
+                    <button href="#" class="btn btn-primary" (click)="goStory(i);">Leer más </button>
+                </div>                
+                <div class="row float-right"style="margin-right: 2%;" >
+                    <i class="fa fa-eye" aria-hidden="true" style="margin-right:10px" >1</i>
+                    <i class="fa fa-comment-o" aria-hidden="true">0</i>
+                </div>                
+            </div>
+        </div>
+    
+  </div>
+</div>

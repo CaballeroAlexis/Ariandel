@@ -1,0 +1,57 @@
+<div class="animated fadeIn Fast main-container">
+
+  <h2>Nueva publicación</h2>
+  <form [formGroup]="storyForm" (ngSubmit)="newStory()">
+    <div class="form-group">
+      <label for="title">Título:</label>
+      <input type="text" class="form-control" id="title" name='title' formControlName="title" >
+    </div> 
+    
+    <div class="form-group">
+      <label for="storyText">Publicación:</label>
+      <textarea class="form-control" rows="5" id="storyText" name='storyText'  formControlName="storyText"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Categoría:</label>
+      <select class="form-control" id="category" name='category' formControlName="category">
+        <option>Relato</option>
+        <option>Novela</option>
+        <option>Poema</option>
+        <option>Cuento</option>
+        <option>Otros</option>
+      </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="profile">Subir portada</label>
+    <input type="file" class="form-control-file" id="profile" name='profile' formControlName="profile">
+  </div>
+  
+  <div formArrayName="questions">
+    
+      <h3>Tus preguntas</h3> 
+      
+      
+      <div *ngFor="let question of questions.controls; let i=index">
+        <div class="animated fadeIn Fast ">
+        <!-- The repeated alias template -->
+        
+        <div class="panel-body" [formGroupName]="i">
+          <h4>Pregunta N°{{i+1}}</h4>
+          <app-question [group]="storyForm.controls.questions.controls[i]"></app-question>
+        </div>
+        <div class='col-2'>
+          <div class='form-group'>
+            <label for='usr'></label>
+            <button  id='delete_question' (click)="removeQuestion(i);" class='btn btn-danger'>Eliminar pregunta</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+      <button (click)="addQuestion();" id="new_question" class="btn btn-primary">Nueva pregunta</button>
+  </div>
+    <button  id="submit" type='submit' class="btn btn-success" >Publicar</button>
+  </form>
+</div>
