@@ -15,13 +15,13 @@
                         <a style="font-size: 14px" href="#">{{story.user}}</a> 
                     </div>              
                     <div class="row">
-                        <p class="card-text" style="overflow:hidden;">{{story.text}}</p>
+                        <p class="card-text" style="overflow:hidden;">{{story.storyText}}</p>
                     </div>
                     <div class="row">
 
                     </div>          
                     <div class="row">
-                        <button href="#" class="btn btn-primary" (click)="goStory(i);">Leer más </button>
+                        <button href="#" class="btn btn-primary" (click)="goStory(story.id);">Leer más </button>
                     </div>                
                     <div class="row float-right"style="margin-right: 2%;" >
                         <i class="fa fa-eye" aria-hidden="true" style="margin-right:10px" >{{story.viewed}}</i>

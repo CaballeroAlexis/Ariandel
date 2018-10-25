@@ -1,19 +1,41 @@
 {
-  "posts": [
+  "stories": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "La dama de las flores",
+      "storyText": "Aeris es débil físicamente, pero su mejor arma, el Guarda Princesa deja crecer la materia y su fuerza en magia es la mayor de los personajes utilizables en el juego, sin embargo es peligroso equiparla con mucha materia ya que no cuenta con muchos puntos de vitalidad. Su cabello es castaño claro, con el cabello crespo, su piel es blanca, sus ojos son verdes, aunque en varias ocasiones como en Kingdom Hearts, tiene los ojos de color verde agua. Viste un vestido rosa, con una chaqueta roja, botas cafés, listón en su cuello, brazaletes dorados y un pequeño moño rosa el cual amarra su cabello. Nació el 6 de Julio.",
+      "img": "assets/img/aerith.jpg",
+      "user": "Alexis",
+      "category": "novel"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "title": "El último caballero",
+      "storyText": "Las llamas corrompidas por el abismo corroían el ladrillos de los muros y el hueso de los guerreros",
+      "img": "assets/img/knight.jpg",
+      "user": "Alven",
+      "category": "short"
+    },
+    {
+      "id": 3,
+      "title": "Saga",
+      "storyText": "Todo empezó con Saga, el primero de los imbéciles que yo que sé, hizo algo malo supongo",
+      "img": "assets/img/saga.png",
+      "user": "A.C. Vinland",
+      "category": "novel"
+    },
+    {
+      "title": "nuevo",
+      "storyText": "esta historia es nueva",
+      "category": "",
+      "profile": "",
+      "questions": [
+        {
+          "type": "",
+          "description": ""
+        }
+      ],
+      "id": 4
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -12,14 +12,17 @@ import {StoriesService} from '../../services/stories.service';
 
 export class StoryComponent implements OnInit {
   story:any={};
-  constructor(private activateRoute:ActivatedRoute, private storyService:StoriesService) {
+  id:number;
+  constructor(private activateRoute:ActivatedRoute, private storiesService:StoriesService) {
     this.activateRoute.params.subscribe(params =>{
       console.log(params['id']);
-      this.story=this.storyService.getStory(params['id']);
+      this.id=params['id'];
     });    
    }
 
   ngOnInit() {
+    this.storiesService.getStory(this.id).subscribe((data:any)=>{console.log(data)
+      this.story=data;});
   }
 
 }

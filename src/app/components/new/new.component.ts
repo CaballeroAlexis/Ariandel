@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {NewStoryService} from '../../services/new-story.service';
+import {StoriesService} from '../../services/stories.service';
 
 @Component({
   selector: 'app-new',
@@ -11,7 +11,7 @@ export class NewComponent {
 
   public storyForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private newStoryService:NewStoryService) { }
+  constructor(private fb: FormBuilder,private storiesService:StoriesService) { }
   ngOnInit() {
     
     this.storyForm = this.fb.group({
@@ -48,7 +48,7 @@ export class NewComponent {
   newStory() {
     // TODO: Use EventEmitter with form value
     console.log(this.storyForm.value);
-    this.newStoryService.addStory(this.storyForm.value);
+    this.storiesService.addStoryWithPromise(this.storyForm.value);
     console.log("listo");
   }
 
