@@ -1,0 +1,40 @@
+<div>
+  <div *ngFor="let statistic of statistics; let i=index">
+    <div class="row" style="margin-top:20px"  >
+      <div class=" col-2">
+        
+        
+      </div>
+      <div class=" col-6 comment-options" >
+      <mat-list *ngIf="statistic.type == 'normal' ">
+        <mat-list-item><h5 style="color:black">{{statistic.description}}</h5></mat-list-item>
+        <mat-list-item  *ngFor="let answer of statistic.answers" >
+          {{answer}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      
+      </mat-list>
+
+      <mat-list *ngIf="statistic.type == 'options' " >
+        <mat-expansion-panel class="comment-options" > 
+          <mat-expansion-panel-header >
+            <mat-list-item><h5 style="margin-right:10px;color:black">{{statistic.description}}</h5>{{statistic.answer}}</mat-list-item>
+          </mat-expansion-panel-header>
+          
+          <mat-list *ngFor="let option of statistic.options">
+            <mat-list-item  [ngStyle]="{'width.%':option.votes*100/cantItems}" style="background-color:#1891ac"> {{option.value}}<h6 style="margin-left:80%">{{option.votes*100/cantItems | number:'2.1-2'}}%</h6> 
+            </mat-list-item>
+            
+          </mat-list>
+        
+        </mat-expansion-panel>              
+      </mat-list>       
+      </div>   
+      <div class=" col-6" style="margin-top: 50px">
+        
+        
+      </div>
+
+    </div>
+  </div>
+</div>

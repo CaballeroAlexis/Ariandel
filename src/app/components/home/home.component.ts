@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   }
   goStory(idx:number){
     console.log(idx);
+    
     this.router.navigate(["/story",idx]);
   }
 

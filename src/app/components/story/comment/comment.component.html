@@ -1,0 +1,35 @@
+  <div>
+    <div *ngFor="let comment of comments; let i=index">
+      <div class="row" style="margin-top:20px">
+
+        <div class=" col-2">
+          <img src="../../../../assets/img/avatar.png"  height="64" width="64" >
+          {{comment.user}}
+        </div>
+
+        <div class=" col-6 comment-body" >
+          <div *ngFor="let answer of comment.answers; let i=index">
+
+            <mat-list *ngIf="answer.type == 'normal' ">
+              <mat-list-item><h5 style="color:black">{{answer.description}}</h5></mat-list-item>
+              <mat-list-item>{{answer.answer}}</mat-list-item>
+            </mat-list>
+
+            <mat-list *ngIf="answer.type == 'options' " >
+              <mat-expansion-panel class="comment-options"> 
+                <mat-expansion-panel-header >
+                  <mat-list-item><h5 style="margin-right:10px;color:black">{{answer.description}}</h5>{{answer.answer}}</mat-list-item>
+                </mat-expansion-panel-header>
+                <mat-list *ngFor="let option of answer.options">
+                  <mat-list-item *ngIf="option == answer.answer" style="background:#1891ac"> {{option}} </mat-list-item>
+                  <mat-list-item *ngIf="option != answer.answer"> {{option}} </mat-list-item>
+                </mat-list>
+              </mat-expansion-panel>              
+            </mat-list> 
+            <mat-divider></mat-divider>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

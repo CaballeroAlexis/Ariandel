@@ -4,11 +4,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 (window as any).global = window;
 
 @Injectable()
 export class AuthService {
+  
+
+  
   public userProfile:any;
   auth0 = new auth0.WebAuth({
     clientID: 'aMXW8tbmdxrtQxLjDsNGCY8B4D1ejKNK',

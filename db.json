@@ -1,4 +1,106 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "nickName": "Alexis",
+      "password": "123123"
+    },
+    {
+      "email": "peter@klaven",
+      "password": "cityslicka",
+      "id": 2
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 3
+    },
+    {
+      "nickName": "2",
+      "password": "3",
+      "id": 4
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 5
+    },
+    {
+      "nickName": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 7
+    },
+    {
+      "nickName": "5",
+      "password": "5",
+      "id": 8
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 9
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 10
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 11
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 12
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 13
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 14
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 15
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 16
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 17
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 18
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 19
+    },
+    {
+      "nickName": "peter@klaven",
+      "password": "cityslicka",
+      "id": 20
+    }
+  ],
   "stories": [
     {
       "id": 1,
@@ -6,7 +108,17 @@
       "storyText": "Aeris es débil físicamente, pero su mejor arma, el Guarda Princesa deja crecer la materia y su fuerza en magia es la mayor de los personajes utilizables en el juego, sin embargo es peligroso equiparla con mucha materia ya que no cuenta con muchos puntos de vitalidad. Su cabello es castaño claro, con el cabello crespo, su piel es blanca, sus ojos son verdes, aunque en varias ocasiones como en Kingdom Hearts, tiene los ojos de color verde agua. Viste un vestido rosa, con una chaqueta roja, botas cafés, listón en su cuello, brazaletes dorados y un pequeño moño rosa el cual amarra su cabello. Nació el 6 de Julio.",
       "img": "assets/img/aerith.jpg",
       "user": "Alexis",
-      "category": "novel"
+      "category": "novel",
+      "questions": [
+        {
+          "type": "Desarrollada",
+          "description": "¿Te gustó?"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?"
+        }
+      ]
     },
     {
       "id": 2,
@@ -36,6 +148,132 @@
         }
       ],
       "id": 4
+    },
+    {
+      "title": "eqweqw",
+      "storyText": "",
+      "category": "Relato",
+      "profile": "",
+      "questions": [
+        {
+          "type": "Desarrollada",
+          "description": ""
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "TEST",
+      "storyText": "ESTE ES UN TEST CON 3 PREGUNTAS",
+      "category": "Novela",
+      "profile": "",
+      "questions": [
+        {
+          "type": "Desarrollada",
+          "description": "¿Qué tal funciona?"
+        },
+        {
+          "type": "Numérica (1-10)",
+          "description": "¿Cuantos puntitos pibe?"
+        },
+        {
+          "type": "options",
+          "description": "¿Funciona este test del orto?"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "title": "opciones",
+      "storyText": "",
+      "category": "Relato",
+      "profile": "",
+      "questions": [
+        {
+          "type": "options",
+          "description": "¿Queda la wea?",
+          "options": [
+            "si",
+            "quizas",
+            "veamos"
+          ]
+        }
+      ],
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "NICE"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ],
+          "answer": "Ana"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "NICE"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ],
+          "answer": "Ana"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "user": "Ale2",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "noh"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ],
+          "answer": "Neil"
+        }
+      ],
+      "id": 1
     }
   ]
 }

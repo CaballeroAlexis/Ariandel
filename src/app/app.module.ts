@@ -13,6 +13,9 @@ import {HttpModule} from '@angular/http';
 import * as $ from 'jquery';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 //Services
 import {AuthService} from './services/auth.service';
@@ -26,6 +29,26 @@ import { MyActivityComponent } from './components/profile/my-activity/my-activit
 import {HttpClientModule} from '@angular/common/http';
 import { StoriesService } from './services/stories.service';
 import { QuestionComponent } from './components/new/question/question.component';
+import { DialogNewStoryComponent } from './components/new/dialog-new-story/dialog-new-story.component';
+import { QuestionUsersComponent } from './components/story/question-users/question-users.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { LoginComponent } from './components/login/login.component';
+import { CommentsService } from './services/comments.service';
+import { CommentComponent } from './components/story/comment/comment.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { StatisticsComponent } from './components/story/statistics/statistics.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +62,11 @@ import { QuestionComponent } from './components/new/question/question.component'
     NewComponent,
     MyActivityComponent,
     QuestionComponent,
-    
+    DialogNewStoryComponent,
+    QuestionUsersComponent,
+    LoginComponent,
+    CommentComponent,
+    StatisticsComponent,  
    
   ],
   imports: [
@@ -52,10 +79,24 @@ import { QuestionComponent } from './components/new/question/question.component'
     HttpClientModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    LayoutModule,
+    MatDividerModule,
+    MatListModule,
+    MatSliderModule,
+    MatTreeModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatIconModule,
+    MatChipsModule
 
   ],
-  providers: [AuthService,AuthGuardService,StoriesService],
-  bootstrap: [AppComponent]
+  providers: [AuthService,AuthGuardService,StoriesService,LoginComponent,CommentsService],
+  bootstrap: [AppComponent],
+  entryComponents:[DialogNewStoryComponent]
 })
 export class AppModule { }

@@ -3,11 +3,12 @@ import {HomeComponent} from './components/home/home.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {StoryComponent} from "./components/story/story.component";
 import {NewComponent} from "./components/new/new.component";
-
+import {LoginComponent} from "./components/login/login.component"
 import {AuthGuardService} from './services/auth-guard.service';
 
 const  APP_ROUTES: Routes=[
     {path:'home',component:HomeComponent},
+    {path:'login',component:LoginComponent},
     {path:'profile',component:ProfileComponent, 
         canActivate:[AuthGuardService ]
     },

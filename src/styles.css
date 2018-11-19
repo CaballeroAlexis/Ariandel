@@ -1,14 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .main-container{
-    margin-top: 40px;
-    margin-bottom: 80px;
-    
+    margin-top: 00px;
+    margin-bottom: 00px;
+    background-color: #233142;
+    max-width: 100%;
+    font-family: 'Asap', sans-serif;
+}
+
+.navbar{
+  background-color: #233142;
 }
 .card-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white
+    
+}
+.card-body{
+  background-color: #36506c;
+}
+
+.card-title{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.story-title{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 30px;
+}
+.story-body{
+  background-color: #36506c;
+  color: white;
+  font-family: 'Asap', sans-serif;
+}
+
+
+.home-title{
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+}
+
+.comment-body{
+  background-color: #a5def1;
+  color: black;
+	position: relative;
+	
+	border-radius: .4em;  
+}
+.comment-body:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 18%;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-right-color: #a5def1;
+	border-left: 0;
+	margin-top: -8px;
+	margin-left: -8px;
+}
+.comment-options{
+  background-color: #a5def1;
+  color: black;
 }
 
 .animated {
@@ -40,7 +99,8 @@
   }
 
   footer{
-    color: white;
+    color:black;
+    background-color: #233142;
     position: fixed;
     bottom: 0px;
     width:100%;

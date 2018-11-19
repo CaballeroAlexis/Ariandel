@@ -1,0 +1,21 @@
+<h2>
+  Tu turno!
+</h2>
+<form [formGroup]="answersForm">
+  <div formArrayName="answers">
+    <div *ngFor="let question of answersForm.controls.answers.controls; let i=index">
+    <div [formGroupName]="i"> 
+
+      <li>{{question.controls.description.value}}</li>
+      <mat-form-field *ngIf="question.controls.type.value == 'Desarrollada' ">
+        <input matInput placeholder="{{question.description}}"  formControlName="answer">
+      </mat-form-field >
+      
+      <mat-slide-toggle *ngIf="question.controls.type.value == 'binaria' " formControlName="answer">
+       No
+      </mat-slide-toggle>
+    </div>
+  </div>
+</div>
+</form>
+<button mat-raised-button color="primary"  (click)="sendAnswer();" style="margin-top:60px">Enviar</button>

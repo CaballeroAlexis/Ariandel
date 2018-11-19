@@ -3,20 +3,19 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Headers, RequestOptions } from '@angular/http';
 import { Http, Response } from '@angular/http';
-
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class StoriesService {
-  private stories:any[]=[];
+
   constructor( private http:HttpClient, private http2:Http) {
-    console.log("stories");
    }
 
   getStories(){
     return this.http.get('http://localhost:3000/stories/').pipe(map(data=>{return data}));
-    //return this.stories;
+    
   }
   getStory(i:number){
     return this.http.get('http://localhost:3000/stories/'+i).pipe(map(data=>{return data}));

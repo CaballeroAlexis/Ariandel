@@ -1,7 +1,7 @@
 <div class="animated fadeIn Fast main-container">
 
   <h2>Nueva publicación</h2>
-  <form [formGroup]="storyForm" (ngSubmit)="newStory()">
+  <form [formGroup]="storyForm" >
     <div class="form-group">
       <label for="title">Título:</label>
       <input type="text" class="form-control" id="title" name='title' formControlName="title" >
@@ -33,13 +33,13 @@
       <h3>Tus preguntas</h3> 
       
       
-      <div *ngFor="let question of questions.controls; let i=index">
+      <div *ngFor="let media of medias; let i = index" >
         <div class="animated fadeIn Fast ">
         <!-- The repeated alias template -->
         
-        <div class="panel-body" [formGroupName]="i">
+        <div class="panel-body" >
           <h4>Pregunta N°{{i+1}}</h4>
-          <app-question [group]="storyForm.controls.questions.controls[i]"></app-question>
+          <app-question  (sendMedia)="addQuestionForm($event)"></app-question>
         </div>
         <div class='col-2'>
           <div class='form-group'>
@@ -52,6 +52,6 @@
     </div>
       <button (click)="addQuestion();" id="new_question" class="btn btn-primary">Nueva pregunta</button>
   </div>
-    <button  id="submit" type='submit' class="btn btn-success" >Publicar</button>
+    <button (click)="openDialog();" id="submit" type='submit' class="btn btn-success" >Publicar</button>
   </form>
 </div>
