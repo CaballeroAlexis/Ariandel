@@ -1,0 +1,10 @@
+<h6>{{question.description}}</h6>
+<mat-slider style="width:60%"
+[(value)]=value
+[max]=10
+[thumbLabel]=true
+[step]=1
+[tickInterval]=1
+(change)="changeValue(value)"
+></mat-slider>
+ {{value}}

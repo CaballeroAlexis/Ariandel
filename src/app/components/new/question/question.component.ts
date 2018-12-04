@@ -32,19 +32,13 @@ export class QuestionComponent implements OnInit  {
     this.sendMedia.emit( this.questionForm);
   }
 
-  delete_question(i){
-    console.log(i);
-    
-  }
   changeType(deviceValue){
-    console.log(deviceValue);
     this.type=deviceValue;
   }
   addOption(){
     let option=$("#optionsInput").val();
     $("#optionsInput").val('')
     this.optionsArray.push(option);
-    console.log(this.optionsArray);
   }
 
   visible = true;

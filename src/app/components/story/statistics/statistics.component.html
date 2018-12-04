@@ -15,6 +15,15 @@
       
       </mat-list>
 
+      <mat-list *ngIf="statistic.type == 'number' ">
+          <mat-list-item><h5 style="color:black">{{statistic.description}}</h5></mat-list-item>
+          <mat-list-item  *ngFor="let answer of statistic.answers" >
+            Promedio de {{answer.average}} (Con {{answer.cantVotes}} votos en total)
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        
+        </mat-list>
+
       <mat-list *ngIf="statistic.type == 'options' " >
         <mat-expansion-panel class="comment-options" > 
           <mat-expansion-panel-header >

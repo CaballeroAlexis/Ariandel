@@ -1,122 +1,27 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "nickName": "Alexis",
-      "password": "123123"
-    },
-    {
-      "email": "peter@klaven",
-      "password": "cityslicka",
-      "id": 2
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 3
-    },
-    {
-      "nickName": "2",
-      "password": "3",
-      "id": 4
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 5
-    },
-    {
-      "nickName": "",
-      "password": "",
-      "id": 6
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 7
-    },
-    {
-      "nickName": "5",
-      "password": "5",
-      "id": 8
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 9
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 10
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 11
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 12
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 13
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 14
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 15
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 16
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 17
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 18
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 19
-    },
-    {
-      "nickName": "peter@klaven",
-      "password": "cityslicka",
-      "id": 20
-    }
-  ],
+  "users": [],
   "stories": [
     {
       "id": 1,
       "title": "La dama de las flores",
       "storyText": "Aeris es débil físicamente, pero su mejor arma, el Guarda Princesa deja crecer la materia y su fuerza en magia es la mayor de los personajes utilizables en el juego, sin embargo es peligroso equiparla con mucha materia ya que no cuenta con muchos puntos de vitalidad. Su cabello es castaño claro, con el cabello crespo, su piel es blanca, sus ojos son verdes, aunque en varias ocasiones como en Kingdom Hearts, tiene los ojos de color verde agua. Viste un vestido rosa, con una chaqueta roja, botas cafés, listón en su cuello, brazaletes dorados y un pequeño moño rosa el cual amarra su cabello. Nació el 6 de Julio.",
       "img": "assets/img/aerith.jpg",
-      "user": "Alexis",
+      "user": "Laitan",
       "category": "novel",
       "questions": [
         {
-          "type": "Desarrollada",
+          "type": "normal",
           "description": "¿Te gustó?"
         },
         {
           "type": "options",
-          "description": "¿Personaje favorito?"
+          "description": "¿Personaje favorito?",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
         }
       ]
     },
@@ -200,6 +105,76 @@
         }
       ],
       "id": 7
+    },
+    {
+      "title": "newwwww",
+      "storyText": "",
+      "category": "Relato",
+      "profile": "",
+      "questions": [
+        {
+          "type": "normal",
+          "description": "",
+          "options": []
+        }
+      ],
+      "id": 8
+    },
+    {
+      "title": "x",
+      "storyText": "",
+      "category": "Relato",
+      "profile": "",
+      "questions": [
+        {
+          "type": "normal",
+          "description": "tiene opciones?",
+          "options": []
+        },
+        {
+          "type": "options",
+          "description": "¿Cuantas opciones?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ],
+      "id": 9
+    },
+    {
+      "title": "",
+      "storyText": "",
+      "category": "Relato",
+      "profile": "",
+      "questions": [
+        {
+          "type": "number",
+          "description": "del 1 al 10",
+          "options": []
+        }
+      ],
+      "id": 10
+    },
+    {
+      "user": "Laitan",
+      "title": "El ave y el gusano",
+      "storyText": "Ésta es la historia de un ave y un gusano.",
+      "category": "Novela",
+      "image": "",
+      "questions": [
+        {
+          "type": "number",
+          "description": "¿Funciona?",
+          "options": []
+        }
+      ],
+      "id": 11
     }
   ],
   "comments": [
@@ -274,6 +249,230 @@
         }
       ],
       "id": 1
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "meh"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Laitan"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "seh",
+          "options": ""
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "",
+          "options": ""
+        }
+      ],
+      "id": 9
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "1",
+          "options": ""
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Naomi",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
+        }
+      ],
+      "id": 10
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "Good"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Naomi",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
+        }
+      ],
+      "id": 11
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "1"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Naomi",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
+        }
+      ],
+      "id": 12
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 10,
+      "answers": [
+        {
+          "type": "number",
+          "description": "del 1 al 10",
+          "answer": 6
+        }
+      ],
+      "id": 21
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 10,
+      "answers": [
+        {
+          "type": "number",
+          "description": "del 1 al 10",
+          "answer": 10
+        }
+      ],
+      "id": 22
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 10,
+      "answers": [
+        {
+          "type": "number",
+          "description": "del 1 al 10",
+          "answer": 3
+        }
+      ],
+      "id": 23
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 10,
+      "answers": [
+        {
+          "type": "number",
+          "description": "del 1 al 10",
+          "answer": 3
+        }
+      ],
+      "id": 24
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "chi"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Ana",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
+        }
+      ],
+      "id": 25
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": 1,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "¿Te gustó?",
+          "answer": "algo"
+        },
+        {
+          "type": "options",
+          "description": "¿Personaje favorito?",
+          "answer": "Neil",
+          "options": [
+            "Ana",
+            "Laitan",
+            "Neil",
+            "Naomi"
+          ]
+        }
+      ],
+      "id": 26
+    },
+    {
+      "user": "Alexis",
+      "created": "Hoy",
+      "idStory": null,
+      "answers": [
+        {
+          "type": "normal",
+          "description": "d1",
+          "answer": "1"
+        }
+      ],
+      "id": 27
     }
   ]
 }

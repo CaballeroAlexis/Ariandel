@@ -1,26 +1,33 @@
 <div class="animated fadeIn Fast"  style="margin-left: 40px;">
-  <div class="col-10 story-body" >
-    <div class="story-title">{{story.title}} </div>
-    <br>
-    <a style = "font-size: 14px" >Escrito por {{story.user}}</a> 
-    
-    <br>
-    <img src = "{{story.img}}" width = "400px" height = "400px"  style="margin-bottom: 30px;"/> 
-    <br>
-    {{story.storyText}}
+  <div class="row">
+    <div class="col-10 story-body" >
+      <div class="story-title">{{story.title}} </div>
+      
+      <br>
+      <img src = "../../../assets/img/pluma.png" width = "400px" height = "400px"  style="margin-bottom: 30px;"/> 
+      <br>
+      {{story.storyText}}
+    </div>
+    <div class=" col-2" style=" color: white">
+      <div class="story-user">
+      <img src="../../../assets/img/avatar.png"  height="128" width="128" ><br>
+      {{story.user}}<br>
+      <button mat-raised-button color="primary">Seguir</button>
+      </div>
+    </div>    
   </div>
   <h2>
     Críticas!
   </h2>
   <button mat-flat-button color="primary" (click)="commentsDefault = !commentsDefault">Cambiar vista</button>
-  <div *ngIf = "comments[0] && commentsDefault === true ">
+  <div *ngIf = "commentsDefault">
     <app-comment [comments]="comments" ></app-comment>
   </div>
   <div *ngIf = "comments[0] && commentsDefault === false ">
     <app-statistics [comments]="comments" ></app-statistics>
   </div>  
   <div *ngIf = "story['questions']">
-    <app-question-users [questionsUsers]="story.questions" [comments]="comments" [idStory]="story.id"> </app-question-users>
+    <app-question-users [questionsUsers]="story.questions" [comments]="comments" [idStory]="id"> </app-question-users>
   </div>
   
 </div>

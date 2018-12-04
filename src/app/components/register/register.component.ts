@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
+  usernameText: string;
+  usernameAvailable: boolean;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -23,12 +24,16 @@ export class LoginComponent implements OnInit {
     ) {
       //auth.handleAuthentication();
     }
-
   ngOnInit() {
-      this.loginForm = this.formBuilder.group({
-          username: ['', Validators.required],
-          password: ['', Validators.required]
+      this.registerForm = this.formBuilder.group({
+          email: ['', Validators.required],
+          password: ['', Validators.required],
+          username:[''],
+          name:[''],
+          lastname: ['']
       });
+    
+
 
       // reset login status
       
@@ -38,29 +43,38 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
       this.submitted = true;
 
+
       // stop here if form is invalid
-      if (this.loginForm.invalid) {
+      if (this.registerForm.invalid) {
           return;
       }
 
   }
-  onSubmitLoginUser(){
-    let username=this.loginForm.controls['username'].value;
-    let password=this.loginForm.controls['password'].value;      
-    this.auth.loginUsername(username,password)
-    
+  onSubmitAddUser(){
+
+    this.auth.registerUser(this.registerForm.value)
     .then((res) =>{
+        console.log(res);
         this.router.navigate(["/home"]);
     }).catch ((err)=> {
         console.log(err)
     });
-    console.log("good");
+  }
+
+
+  checkUsername() {
+    this.auth.checkUsername(this.usernameText).subscribe(username => {
+      this.usernameAvailable = !username;
+    })
+  }
+
+  updateUsername() {
+    console.log("Subido")
+    this.auth.updateUsername(this.usernameText)
   }
 }
-
-

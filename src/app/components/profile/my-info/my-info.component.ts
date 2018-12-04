@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-my-info',
@@ -6,18 +6,18 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./my-info.component.css']
 })
 export class MyInfoComponent implements OnInit {
-  profile: any;
+  @Input('infoProfile') public profile;
   constructor(private auth:AuthService) { }
   
 
   ngOnInit() {
-    if (this.auth.userProfile) {
+    /*if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
       });
-    }
+    }*/
   }
 
 }

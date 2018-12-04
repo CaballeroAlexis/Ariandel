@@ -5,6 +5,8 @@ import {MatDialog,MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular
 import { DialogNewStoryComponent } from '../../components/new/dialog-new-story/dialog-new-story.component';
 import {Router} from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-new',
@@ -13,40 +15,47 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class NewComponent {
   medias=[];
-
+  author:any;
   public storyForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private storiesService:StoriesService,public dialog: MatDialog,private router:Router,private cdRef:ChangeDetectorRef) { }
+  constructor(private fb: FormBuilder,private storiesService:StoriesService,public dialog: MatDialog,private router:Router,private cdRef:ChangeDetectorRef,private auth:AuthService,private ngFlashMessageService: NgFlashMessageService) { }
   ngOnInit() {
-    
-    this.storyForm = this.fb.group({
-      title: ['', Validators.required],
-      storyText: [''],
-      category: ['Relato'],
-      profile:[''],
-      questions: this.fb.array([])
-    });
-
-    this.addQuestion();
+    this.auth.getAuthUser()
+    .then(
+    result =>{
+      this.author=result;
+      this.storyForm = this.fb.group({
+        user:[this.author['username']],
+        title: ['', Validators.required],
+        storyText: [''],
+        category: ['Relato'],
+        image:[''],
+        questions: this.fb.array([])
+      });
+  
+      this.addQuestion();
+      if(this.author['points']<5){
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["No tiene suficientes puntos para publicar. ¡Ve, y comenta a los demás!"], 
+          dismissible: false, 
+          timeout: false,
+          type: 'danger'
+        });     
+      }    
+    })
   }
  
 
   addQuestion() {
     this.medias.push('Media '+(this.medias.length+1));
-    /*
-    const control = <FormArray>this.storyForm.controls['questions'];
-    const questionCtrl = this.initQuestion();
-    control.push(questionCtrl);*/
   }
+
   addQuestionForm(bool){
-    
     const control = <FormArray>this.storyForm.controls['questions'];
     control.push(bool);
     this.ngAfterViewChecked();
-
   }  
   removeQuestion(i: number) {
-    console.log(i);
     const control = <FormArray>this.storyForm.controls['questions'];
     control.removeAt(i);
     this.medias.splice(i, 1);
@@ -55,39 +64,26 @@ export class NewComponent {
     return this.storyForm.get('questions') as FormArray;
   }
 
-
   newStory() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.storyForm.value);
-    this.storiesService.addStoryWithPromise(this.storyForm.value);
-    console.log("listo");
+    this.storiesService.saveStory(this.storyForm.value)
     this.router.navigate(["/home"]);
   }
 
   openDialog() {
-    console.log(this.storyForm.value);
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
     dialogConfig.data = {
         id: 1,
         title: 'Angular For Beginners'
     };
-
-    
     const dialogRef = this.dialog.open(DialogNewStoryComponent, dialogConfig);
-
     dialogRef.afterClosed().subscribe(
-        
         data => (data ==true) ? this.newStory() : 'invalid'
     );
     
 }
-ngAfterViewChecked()
-{
-  
+ngAfterViewChecked() {
   this.cdRef.detectChanges();
 }
 

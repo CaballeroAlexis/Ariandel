@@ -3,8 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+    apiKey: "AIzaSyBK_0rVr23UKSbKHIXcFiELAU6ilzvoe8A",
+    authDomain: "ariandel-75d52.firebaseapp.com",
+    databaseURL: "https://ariandel-75d52.firebaseio.com",
+    projectId: "ariandel-75d52",
+    storageBucket: "",
+    messagingSenderId: "1042299809750",
+  }  
 };
+
 
 /*
  * In development mode, to ignore zone related error stack frames such as

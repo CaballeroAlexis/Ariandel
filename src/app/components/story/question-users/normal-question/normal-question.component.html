@@ -1,0 +1,5 @@
+<form [formGroup]="questionForm">
+  <mat-form-field class="input-comment" *ngIf="question.type == 'normal' ">
+    <input matInput placeholder="{{question.description}}"  formControlName="answer">
+  </mat-form-field >
+</form>  

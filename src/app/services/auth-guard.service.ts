@@ -1,22 +1,28 @@
 import { Injectable } from '@angular/core';
-import {Router,ActivatedRouteSnapshot,RouterStateSnapshot,CanActivate} from '@angular/router';
-import { AuthService } from './auth.service';
-
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { map, take,tap } from 'rxjs/operators';
+import {AngularFireAuth } from 'angularfire2/auth';
+import {AuthService} from '../services/auth.service';
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  constructor( private auth:AuthService) { }
+  constructor( private authService:AuthService, private router:Router,afAuth:AngularFireAuth) { }
 
-  canActivate(next:ActivatedRouteSnapshot, state:RouterStateSnapshot){
-    console.log(next);
-    if(this.auth.isAuthenticated()){
-      console.log("Pasó");
-      return true;
-    }
-    else{
-      console.log("NOPE");
-      return false;
-    }
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    return this.authService.afAuth.authState
+    .pipe(
+      take(1)
     
+    ).pipe(map(authState => !! authState))
+    .pipe(tap( authenticated => {
+      if (!authenticated) {
+        this.router.navigate(['/login']);
+      }
+   }));
+   
+
   }
 }

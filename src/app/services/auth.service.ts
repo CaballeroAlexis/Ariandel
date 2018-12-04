@@ -1,84 +1,140 @@
 // src/app/auth/auth.service.ts
-
 import { Injectable } from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase/app'
+import { map, switchMap } from "rxjs/operators";
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as auth0 from 'auth0-js';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import * as myGlobals from '../global';
 
 (window as any).global = window;
 
+export class User {
+  uid: string;
+  username: string = "";
+
+  constructor(auth) {
+    this.uid = auth.uid
+  }
+}
+
 @Injectable()
 export class AuthService {
-  
-
-  
-  public userProfile:any;
-  auth0 = new auth0.WebAuth({
-    clientID: 'aMXW8tbmdxrtQxLjDsNGCY8B4D1ejKNK',
-    domain: 'wargos.auth0.com',
-    responseType: 'token id_token',
-    audience: 'https://wargos.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid profile'
-  });
-
-  constructor(public router: Router) {}
-
-  public login(): void {
-    this.auth0.authorize();
+  currentUser: User;
+  em: string;
+  constructor(public afAuth: AngularFireAuth, private db: AngularFireDatabase) {
+    this.afAuth.authState.pipe(switchMap(auth => {
+      if(auth){
+        this.currentUser = new User(auth)
+        return this.db.list(`/users/${auth.uid}`).valueChanges()
+      }else{
+        return [];
+      }
+    })).subscribe(user => {
+      this.currentUser['username'] = user.username;
+  })
   }
 
-  public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
-        this.router.navigate(['/home']);
-      } else if (err) {
-        this.router.navigate(['/home']);
-        console.log(err);
-      }
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider()
+      return this.afAuth.auth.signInWithPopup(provider)
+  }
+
+  get hasUsername() {
+    return this.currentUser.username ? true : false
+  }
+ 
+  checkUsername(username: string) {
+    return this.db.object(`users/${username}`).valueChanges()
+  }
+ 
+  updateUsername(username: string) {
+    let data = {}
+    data[username] = this.currentUser.uid
+    this.db.object(`/users/${this.currentUser.uid}`).update({"username": username})
+    this.db.object(`/usernames`).update(data)
+  }
+
+  registerUser(registerForm:object) {
+    return new Promise((resolve, reject) =>{
+        this.afAuth.auth.createUserWithEmailAndPassword(registerForm['email'],registerForm['password'])
+        .then (userData =>{ 
+          console.log(userData)
+          resolve (userData);
+          firebase.database().ref('users/' + registerForm['username']).set({
+            id:userData.user.uid,
+            username:  registerForm['username'],
+            email: registerForm['email'],
+            name: registerForm['name'],
+            lastname:registerForm['lastname'],
+            points:10,
+            avatar:""
+          }); 
+        },
+      err=> reject(err))
     });
   }
 
-  private setSession(authResult): void {
-    // Set the time that the Access Token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
+  loginUsername(username:string,pass:string) {
+    return new Promise((resolve,reject) =>{
+      firebase.database().ref('/users/'+username ).once('value')
+        .then(function(dataSnapshot) {
+          return dataSnapshot.child('email').val()
+          })
+          .then(result => {
+            
+            resolve ( this.afAuth.auth.signInWithEmailAndPassword(result,pass));
+          },
+          err=>{
+          reject(err)
+          } 
+          )
+      })
   }
 
-  public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // Go back to the home route
-    this.router.navigate(['/']);
+  getProfileUser(id){
+    return new Promise((resolve,reject) =>{
+      firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+          firebase.database().ref('/users/' ).orderByChild('username').equalTo(id).once('value')
+          .then( function(dataSnapshot) {
+            return dataSnapshot.val()
+        }).then(result => {
+          resolve ( result);
+        },
+        err=>reject(err)
+        )}   
+      })
+    })
   }
 
-  public isAuthenticated(): boolean {
-    // Check whether the current time is past the
-    // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
-    return new Date().getTime() < expiresAt;
-  }
-
-  public getProfile(cb): void {
-    const accessToken = localStorage.getItem('access_token');
-    if (!accessToken) {
-      throw new Error('Access Token must exist to fetch profile');
+  getAuthUser(){
+    return new Promise((resolve,reject) =>{
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          firebase.database().ref('/users/' ).orderByChild('id').equalTo(user.uid).once('value')
+          .then( function(dataSnapshot) {
+            let key=Object.keys(dataSnapshot.val())
+            
+            return dataSnapshot.child(key[0]).val()
+          }).then(result => {
+            resolve ( result);
+          },
+          err=>reject(err)
+          )}   
+        })
+      })
     }
   
-    const self = this;
-    this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if (profile) {
-        self.userProfile = profile;
-      }
-      cb(err, profile);
-    });
+  logout() {
+    return this.afAuth.auth.signOut();
   }
+
+  getAuth() {
+    return this.afAuth.authState.pipe(map (auth => auth));
+  }
+
 }

@@ -8,19 +8,31 @@ import {HttpClient} from '@angular/common/http';
   styles: []
 })
 export class HomeComponent implements OnInit {
-  stories:any[]=[];
+  stories:object;
   constructor(private  _storiesService:StoriesService, private router:Router, private httpClient:HttpClient) {
 
    }
 
   ngOnInit() {
-    this._storiesService.getStories().subscribe((data:any)=>{console.log(data)
-      this.stories=data;});
-    console.log(this.stories);
-  }
-  goStory(idx:number){
-    console.log(idx);
+    this._storiesService.getStories()
+    .then( result =>{
+      
+      this.stories = Object.keys(result).map(function(storyIndex){
+
+        return {id:storyIndex,
+                    title:result[storyIndex]['title'],
+                    user:result[storyIndex]['user'],
+                    image:result[storyIndex]['image'],
+                    questions:result[storyIndex]['questions'],
+                    storyText:result[storyIndex]['storyText'],
+                    category:result[storyIndex]['category'],
+                  }
+    })
+  })
     
+  }
+
+  goStory(idx:number){
     this.router.navigate(["/story",idx]);
   }
 

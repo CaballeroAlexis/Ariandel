@@ -46,8 +46,22 @@ import { StatisticsComponent } from './components/story/statistics/statistics.co
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { SelectQuestionComponent } from './components/story/question-users/select-question/select-question.component';
+import { NormalQuestionComponent } from './components/story/question-users/normal-question/normal-question.component';
+import { NumberQuestionComponent } from './components/story/question-users/number-question/number-question.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FirebaseApp } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @NgModule({
   declarations: [
@@ -66,7 +80,11 @@ import {MatChipsModule} from '@angular/material/chips';
     QuestionUsersComponent,
     LoginComponent,
     CommentComponent,
-    StatisticsComponent,  
+    StatisticsComponent,
+    SelectQuestionComponent,
+    NormalQuestionComponent,
+    NumberQuestionComponent,
+    RegisterComponent,  
    
   ],
   imports: [
@@ -92,10 +110,19 @@ import {MatChipsModule} from '@angular/material/chips';
     MatExpansionModule,
     MatCardModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule, 
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    MatProgressSpinnerModule,
+    NgFlashMessagesModule
 
   ],
-  providers: [AuthService,AuthGuardService,StoriesService,LoginComponent,CommentsService],
+  providers: [AuthService,AuthGuardService,StoriesService,LoginComponent,CommentsService,FirebaseApp,AngularFireModule,NgFlashMessageService],
   bootstrap: [AppComponent],
   entryComponents:[DialogNewStoryComponent]
 })

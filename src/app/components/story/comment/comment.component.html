@@ -15,6 +15,11 @@
               <mat-list-item>{{answer.answer}}</mat-list-item>
             </mat-list>
 
+            <mat-list *ngIf="answer.type == 'number' ">
+                <mat-list-item><h5 style="color:black">{{answer.description}}</h5></mat-list-item>
+                <mat-slider [(value)]="answer.answer" [max]=10 [disabled]="true" style="width:60%"></mat-slider>{{answer.answer}}
+              </mat-list>
+                          
             <mat-list *ngIf="answer.type == 'options' " >
               <mat-expansion-panel class="comment-options"> 
                 <mat-expansion-panel-header >

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -8,18 +8,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profile: any;
-  constructor(private auth:AuthService) { }
-
+  id: string;
+  constructor(private activateRoute:ActivatedRoute,private auth:AuthService) { }
+  
   ngOnInit() {
-
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
-    } else {
-      this.auth.getProfile((err, profile) => {
-        this.profile = profile;
-      });
-    }
-    console.log(this.profile);
+    this.id = this.activateRoute.snapshot.params['id'];
+    this.auth.getProfileUser(this.id)
+    .then(result =>{
+      this.profile=result[this.id]
+    })
   }
 
 }

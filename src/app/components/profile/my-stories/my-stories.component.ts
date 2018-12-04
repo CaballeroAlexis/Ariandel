@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {StoriesService} from '../../../services/stories.service';
 import {Router} from '@angular/router';
 @Component({
@@ -7,17 +7,38 @@ import {Router} from '@angular/router';
   styleUrls: ['./my-stories.component.css']
 })
 export class MyStoriesComponent implements OnInit {
-
+  @Input('user') public id;
+  
   stories:any[]=[];
   constructor(private  _storiesService:StoriesService, private router:Router) { }
 
   ngOnInit() {
-    this._storiesService.getStories().subscribe((data:any)=>{console.log(data)
-      this.stories=data;});
-    console.log(this.stories);
+    this._storiesService.getStoriesProfile(this.id).then(result =>
+      this.stories = Object.keys(result).map(function(storyIndex){
+    
+       
+        return {id:storyIndex,
+                    title:result[storyIndex]['title'],
+                    user:result[storyIndex]['user'],
+                    image:result[storyIndex]['image'],
+                    questions:result[storyIndex]['questions'],
+                    storyText:result[storyIndex]['storyText'],
+                    category:result[storyIndex]['category'],
+                  }
+        
+  
+      
+     
+    })
+  )
+      
+      
+      
+      
+      
+
   }
   goStory(idx:number){
-    console.log(idx);
     this.router.navigate(["/story",idx]);
   }  
 

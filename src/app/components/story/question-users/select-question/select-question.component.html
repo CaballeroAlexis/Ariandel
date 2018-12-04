@@ -1,0 +1,9 @@
+<form [formGroup]="questionForm">
+<mat-form-field class="input-comment">
+  <mat-select  placeholder="{{question.description}}" formControlName="answer">
+    <div *ngFor="let option of question.options ">
+      <mat-option  value="{{option}}">{{option}}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>
+</form>

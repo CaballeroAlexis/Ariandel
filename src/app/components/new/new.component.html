@@ -1,7 +1,13 @@
 <div class="animated fadeIn Fast main-container">
 
   <h2>Nueva publicación</h2>
-  <form [formGroup]="storyForm" >
+  <mat-spinner *ngIf="!storyForm" [color]="white"></mat-spinner>
+  <form *ngIf="storyForm" [formGroup]="storyForm" >
+
+        <ng-flash-message></ng-flash-message>
+
+      
+    <input type="hidden" class="form-control" id="user" name='user' formControlName="user" >
     <div class="form-group">
       <label for="title">Título:</label>
       <input type="text" class="form-control" id="title" name='title' formControlName="title" >
@@ -24,8 +30,8 @@
   </div>
   
   <div class="form-group">
-    <label for="profile">Subir portada</label>
-    <input type="file" class="form-control-file" id="profile" name='profile' formControlName="profile">
+    <label for="image">Subir portada</label>
+    <input type="file" class="form-control-file" id="image" name='image' formControlName="image">
   </div>
   
   <div formArrayName="questions">
@@ -52,6 +58,6 @@
     </div>
       <button (click)="addQuestion();" id="new_question" class="btn btn-primary">Nueva pregunta</button>
   </div>
-    <button (click)="openDialog();" id="submit" type='submit' class="btn btn-success" >Publicar</button>
+    <button (click)="openDialog();" id="submit" type='submit' class="btn btn-success" [disabled]="author.points<5" >Publicar</button>
   </form>
 </div>
