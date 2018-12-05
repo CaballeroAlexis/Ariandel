@@ -13,6 +13,8 @@ export class StoryComponent implements OnInit {
   comments:any={};
   id:number;
   commentsDefault=true;
+  showComments=false;
+  commentsArray=[];
   constructor(private activateRoute:ActivatedRoute, private storiesService:StoriesService, private commentsService:CommentsService) {
   
   }
@@ -37,6 +39,8 @@ export class StoryComponent implements OnInit {
       
      
     })
+    this.showComments=true;
+   
     console.log(this.comments)
       
       

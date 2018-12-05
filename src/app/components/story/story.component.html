@@ -11,7 +11,7 @@
     <div class=" col-2" style=" color: white">
       <div class="story-user">
       <img src="../../../assets/img/avatar.png"  height="128" width="128" ><br>
-      {{story.user}}<br>
+      <a href="profile/{{story.user}}">{{story.user}}</a><br>
       <button mat-raised-button color="primary">Seguir</button>
       </div>
     </div>    
@@ -20,10 +20,10 @@
     Críticas!
   </h2>
   <button mat-flat-button color="primary" (click)="commentsDefault = !commentsDefault">Cambiar vista</button>
-  <div *ngIf = "commentsDefault">
+  <div *ngIf = "showComments && commentsDefault">
     <app-comment [comments]="comments" ></app-comment>
   </div>
-  <div *ngIf = "comments[0] && commentsDefault === false ">
+  <div *ngIf = "showComments && commentsDefault === false ">
     <app-statistics [comments]="comments" ></app-statistics>
   </div>  
   <div *ngIf = "story['questions']">

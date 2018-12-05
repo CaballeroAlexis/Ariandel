@@ -21,9 +21,10 @@ export class StoriesService {
     return new Promise((resolve, reject) => {
       firebase.database().ref('/stories/' ).once('value')
       .then(function(dataSnapshot) {
+        
         return dataSnapshot.val();
       })
-    .then(result =>resolve (result),
+    .then(result =>{console.log(result);resolve (result)},
     err =>reject(err))
   })
   }
