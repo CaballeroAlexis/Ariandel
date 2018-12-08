@@ -66,7 +66,11 @@ export class NewComponent {
 
   newStory() {
     this.storiesService.saveStory(this.storyForm.value)
-    this.router.navigate(["/home"]);
+    .then(result => {
+      console.log(result);
+      this.router.navigate(["/home"]);
+
+    })
   }
 
   openDialog() {

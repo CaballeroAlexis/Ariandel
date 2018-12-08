@@ -62,6 +62,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { NgFlashMessageService } from 'ng-flash-messages';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatProgressSpinnerModule,
-    NgFlashMessagesModule
+    NgFlashMessagesModule,
+    MatPaginatorModule
 
   ],
   providers: [AuthService,AuthGuardService,StoriesService,LoginComponent,CommentsService,FirebaseApp,AngularFireModule,NgFlashMessageService],

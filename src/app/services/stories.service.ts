@@ -24,7 +24,7 @@ export class StoriesService {
         
         return dataSnapshot.val();
       })
-    .then(result =>{console.log(result);resolve (result)},
+    .then(result =>resolve (result),
     err =>reject(err))
   })
   }
@@ -61,13 +61,20 @@ export class StoriesService {
   }
   
   saveStory(story:object){
-  
     return new Promise((resolve, reject) =>{
-      let s= firebase.database().ref('stories/').push().set(story) 
-      .then(newStory =>resolve (newStory)
-      )
-      err=> reject(err)
-    });
+      firebase.database().ref('/users/'+ story['user']).once('value')
+      .then(function(dataSnapshot) {
+        if(dataSnapshot.val()['points']>=5){
+          dataSnapshot.ref.update({'points':dataSnapshot.val()['points']-5});
+          console.log("first")
+          firebase.database().ref('stories/').push().set(story)
+          return true;
+        }
+      }).then(result =>{
+          resolve (result);
+        },
+        err => reject(err))
+      })
     
   }
 

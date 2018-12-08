@@ -52,9 +52,20 @@ export class CommentsService {
 
 
   saveComment(comment:object){
+ 
+        
       return new Promise((resolve, reject) =>{
         let s= firebase.database().ref('comments/').push().set(comment) 
-        .then(newComment =>resolve (newComment)
+        .then(newComment =>{
+          firebase.database().ref('/users/'+ comment['user']).once('value')
+          .then(function(dataSnapshot) {
+    
+          dataSnapshot.ref.update({'points':dataSnapshot.val()['points']+3});
+          
+          return true;
+        
+      })
+          resolve (newComment)}
         )
         err=> reject(err)
       });

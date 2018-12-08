@@ -21,6 +21,6 @@
         </div>
       </form> 
     </div>
-    <button mat-raised-button color="primary"  (click)="sendAnswer();" style="margin-top:20px">Enviar</button>        
+    <button mat-raised-button color="primary"  (click)="sendAnswer();" [disabled]="disabledComment" style="margin-top:20px">Enviar</button>        
   </div>
 </div>

@@ -16,9 +16,10 @@
       </div>
     </div>    
   </div>
-  <h2>
-    Críticas!
-  </h2>
+  <h2 class="title-comments">Comentarios</h2>
+  <h6 *ngIf="commentsDefault" class="title-comments">Ordenado por usuario</h6>
+  <h6 *ngIf="!commentsDefault" class="title-comments">Ordenado por pregunta</h6>
+
   <button mat-flat-button color="primary" (click)="commentsDefault = !commentsDefault">Cambiar vista</button>
   <div *ngIf = "showComments && commentsDefault">
     <app-comment [comments]="comments" ></app-comment>
@@ -26,7 +27,7 @@
   <div *ngIf = "showComments && commentsDefault === false ">
     <app-statistics [comments]="comments" ></app-statistics>
   </div>  
-  <div *ngIf = "story['questions']">
+  <div *ngIf = "commentActivate && story['questions']">
     <app-question-users [questionsUsers]="story.questions" [comments]="comments" [idStory]="id"> </app-question-users>
   </div>
   

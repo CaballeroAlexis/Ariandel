@@ -59,15 +59,16 @@
   font-family: 'Montserrat', sans-serif;
   margin-top: 10%;
   text-align: center;
-  
 }
 
 .home-title{
   font-family: 'Open Sans', sans-serif;
   color: white;
-  
 }
-
+.title-comments{
+  font-family: 'Open Sans', sans-serif;
+  color: white; 
+}
 .comment-body{
   background-color: #a5def1;
   color: black;
@@ -97,6 +98,17 @@
   width: 100%;
 }
 
+
+.mat-tab-label {
+  min-width : 0px; 
+   width: 167px;
+   height: 42px;
+   
+   background-color: #eeeeee;
+   margin-left: 3px;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+ }
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;

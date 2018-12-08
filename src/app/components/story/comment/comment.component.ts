@@ -16,10 +16,7 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
   
     for (var key in this.comments) {
-      
-
       this.commentsArray.push(this.comments[key]);
-      
     }
     console.log(this.comments);
     

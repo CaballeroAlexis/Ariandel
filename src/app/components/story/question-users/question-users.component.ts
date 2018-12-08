@@ -15,6 +15,7 @@ export class QuestionUsersComponent implements OnInit {
   @Input('answer')  public answer;
   public answersForm: FormGroup;
   username:string;
+  disabledComment:boolean=false;
   constructor(private fb: FormBuilder,private commentsService:CommentsService,private auth:AuthService) { }
 
   ngOnInit() {
@@ -35,6 +36,8 @@ export class QuestionUsersComponent implements OnInit {
 
   sendAnswer(){
     this.commentsService.saveComment(this.answersForm.value);
+    this.disabledComment=true;
+    window.location.reload();
     console.log("Envia")
   }
 
@@ -42,4 +45,5 @@ export class QuestionUsersComponent implements OnInit {
     const control = <FormArray>this.answersForm.controls['answers'];
     control.push(answer);    
   }
+
 }
