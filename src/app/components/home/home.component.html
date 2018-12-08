@@ -1,44 +1,93 @@
-<div class="animated fadeIn Fast" style="margin-left: 40px">
-   
-
-    <mat-tab-group >
-        <mat-tab label="Inicio">
-                <h2 class="home-title">Últimas publicaciones</h2>
-                <div class="card w-75" *ngFor="let  story of stories let i=index" style="margin-bottom:5px">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class=" col-3">
-                                <img src="../../../assets/img/pluma.png" width="140" height="140">
-                            </div>
-                            <div class=" col-9">
+<div class="animated fadeIn Fast" style="margin-left: 20px">
+    <div class="row">
+        <div class="col-8">
+            <mat-tab-group >
+                <mat-tab label="Inicio">
+                        <h2 class="home-title">Últimas publicaciones</h2>
+                        <div class="card " *ngFor="let  story of stories let i=index" style="margin-bottom:5px">
+                            <div class="card-body">
                                 <div class="row">
-                                    <h4 class="card-title">{{story.title}}</h4>
-                                </div>
-                                <div class="row">
-                                    <a style="font-size: 14px" href="profile/{{story.user}}">{{story.user}}</a> 
-                                </div>              
-                                <div class="row">
-                                    <p class="card-text" style="overflow:hidden;">{{story.storyText}}</p>
-                                </div>
-                                <div class="row">
-            
-                                </div>          
-                                <div class="row">
-                                    <button href="#" class="btn btn-primary" (click)="goStory(story.id);">Leer más </button>
-                                </div>                
-                                <div class="row float-right"style="margin-right: 2%;" >
-                                    <i class="fa fa-eye" aria-hidden="true" style="margin-right:10px" >{{story.viewed}}</i>
-                                    <i class="fa fa-comment-o" aria-hidden="true">0</i>
-                                </div>                
-                            </div>
-                        </div>
+                                    <div class=" col-3">
+                                        <img src="../../../assets/img/pluma.png" width="140" height="140">
+                                    </div>
+                                    <div class=" col-9">
+                                        <div class="row">
+                                            <h4 class="card-title">{{story.title}}</h4>
+                                        </div>
+                                        <div class="row">
+                                            <a style="font-size: 14px" href="profile/{{story.user}}">{{story.user}}</a> 
+                                        </div>              
+                                        <div class="row">
+                                            <p class="card-text" style="overflow:hidden;">{{story.storyText}}</p>
+                                        </div>
+                                        <div class="row">
                     
-                  </div>
+                                        </div>          
+                                        <div class="row">
+                                            <button href="#" class="btn btn-primary" (click)="goStory(story.id);">Leer más </button>
+                                        </div>                
+                                        <div class="row float-right"style="margin-right: 2%;" >
+                                            <i class="fa fa-eye" aria-hidden="true" style="margin-right:10px" >{{story.viewed}}</i>
+                                            <i class="fa fa-comment-o" aria-hidden="true">0</i>
+                                        </div>                
+                                    </div>
+                                </div>
+                            
+                        </div>
+                        </div>
+                    </mat-tab>
+                <mat-tab label="Siguiendo"> </mat-tab>
+                <mat-tab label="Mis escritos"> <app-my-stories  *ngIf="true" [user]="'Laitan'"></app-my-stories>  </mat-tab>
+                <mat-tab label="Mis grupos">   </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="col-3">
+            <div class="row">
+            <div class="card" style="width: 100%;margin-top:86px">
+                <div class="card-title home-title" style="background-color:#456182;color:white">
+                    <h3> Críticos favoritos</h3>
+                         
                 </div>
-            </mat-tab>
-        <mat-tab label="Siguiendo"> </mat-tab>
-        <mat-tab label="Tus escritos">   </mat-tab>
-      </mat-tab-group>
+                <div class="card-body">
+                    <mat-list>
+                        <mat-list-item>
+                                <img src='../../../assets/img/avatar.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                            <a style="    margin-left: 10px;">Alexis con 5 puntos</a>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item><img src='../../../assets/img/avatar.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                            <a style="    margin-left: 10px;">Alexis II con 3 puntos</a></mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item><img src='../../../assets/img/avatar.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                            <a style="    margin-left: 10px;">Alexis III con 0 puntos</a></mat-list-item>
+                    </mat-list>                                   
+                </div>
+            </div>
+        </div>
 
+        <div class="row">
+                <div class="card" style="width: 100%;margin-top:20px">
+                    <div class="card-title home-title" style="background-color:#456182;color:white">
+                        <h3> Historias comentadas</h3>
+                             
+                    </div>
+                    <div class="card-body">
+                        <mat-list>
+                            <mat-list-item>
+                                    <img src='../../../assets/img/pluma.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                                <a style="    margin-left: 10px;">El trono de la caca con 5 comentarios</a>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item><img src='../../../assets/img/pluma.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                                <a style="    margin-left: 10px;">Los niñosdel fin con 3 comentarios</a></mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item><img src='../../../assets/img/pluma.png' class="img-fluid" width="25px" height="25px" style="border-radius: 50%;">
+                                <a style="    margin-left: 10px;">iokese con 0 comentarios</a></mat-list-item>
+                        </mat-list>                                   
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
   </div>
 

@@ -4,14 +4,31 @@
 .main-container{
     margin-top: 00px;
     margin-bottom: 00px;
-    background-color: #36506c;
+    background-color: #b4c4d7;
     max-width: 100%;
     font-family: 'Asap', sans-serif;
     min-height: 720px;
 }
-
+.container {
+  padding: 0px;
+}
+.btn-primary {
+  background-color: #458082;
+  border-color: #458082;
+}
+.btn-primary:hover {
+  background-color: #3c7071;
+  border-color: #3c7071;
+}
+.btn-primary:focus {
+  background-color: #3c7071;
+  border-color: #3c7071;
+}
+a {
+  color: #3c7071;
+}
 .navbar{
-  background-color: #233142;
+  background-color: #456182;
 }
 .card-text {
     white-space: nowrap;
@@ -63,7 +80,7 @@
 
 .home-title{
   font-family: 'Open Sans', sans-serif;
-  color: white;
+  color: black;
 }
 .title-comments{
   font-family: 'Open Sans', sans-serif;
