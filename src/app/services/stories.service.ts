@@ -1,9 +1,4 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import { Headers, RequestOptions } from '@angular/http';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs';
 import {AngularFireAuth} from '@angular/fire/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app'
@@ -13,7 +8,7 @@ import * as firebase from 'firebase/app'
 })
 export class StoriesService {
 
-  constructor( private http:HttpClient, private http2:Http, public afAuth: AngularFireAuth, private db: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth, private db: AngularFireDatabase) {
    }
 
   getStories(){

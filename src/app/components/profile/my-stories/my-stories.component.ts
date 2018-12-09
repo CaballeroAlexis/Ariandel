@@ -17,7 +17,7 @@ export class MyStoriesComponent implements OnInit {
       this.stories = Object.keys(result).map(function(storyIndex){
     
        
-        return {id:storyIndex,
+        return {    id:storyIndex,
                     title:result[storyIndex]['title'],
                     user:result[storyIndex]['user'],
                     image:result[storyIndex]['image'],

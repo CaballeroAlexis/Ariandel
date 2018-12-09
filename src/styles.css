@@ -44,6 +44,7 @@ a {
 .card-title{
   font-family: 'Montserrat', sans-serif;
   color: black;
+  padding: 0px;
 }
 
 .story-title{

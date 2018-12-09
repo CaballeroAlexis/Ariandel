@@ -63,6 +63,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { NgFlashMessageService } from 'ng-flash-messages';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { GroupsComponent } from './components/groups/groups.component';
+import { LastStoriesComponent } from './components/last-stories/last-stories.component';
+import { NewGroupComponent } from './components/groups/new-group/new-group.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SelectQuestionComponent,
     NormalQuestionComponent,
     NumberQuestionComponent,
-    RegisterComponent,  
+    RegisterComponent,
+    GroupsComponent,
+    LastStoriesComponent,
+    NewGroupComponent,  
    
   ],
   imports: [

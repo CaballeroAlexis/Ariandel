@@ -1,0 +1,30 @@
+<div class="animated fadeIn Fast main-container">
+
+  <h2>Nuevo grupo</h2>
+  <mat-spinner *ngIf="!groupForm" [color]="white"></mat-spinner>
+  <form *ngIf="groupForm" [formGroup]="groupForm" >
+
+        <ng-flash-message></ng-flash-message>
+
+      
+    <input type="hidden" class="form-control" id="master" name='master' formControlName="master" >
+    <div class="form-group">
+      <label for="title">Nombre de grupo:</label>
+      <input type="text" class="form-control" id="title" name='title' formControlName="title" >
+    </div> 
+    
+    <div class="form-group">
+      <label for="storyText">Descripción:</label>
+      <textarea class="form-control" rows="5" id="description" name='description'  formControlName="description"></textarea>
+    </div>
+
+
+  
+  <div class="form-group">
+    <label for="image">Subir portada</label>
+    <input type="file" class="form-control-file" id="image" name='image' formControlName="image">
+  </div>
+  
+    <button (click)="saveGroup();" id="submit" type='submit' class="btn btn-success" >Crear grupo</button>
+  </form>
+</div>

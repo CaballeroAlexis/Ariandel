@@ -1,19 +1,21 @@
-<h3 class="home-title">Mis publicaciones</h3>
-<div class="card " *ngFor="let  story of stories let i=index" style="margin-bottom:5px">
+<h3 class="home-title">Mis grupos</h3>
+<button [routerLink]="['/newgroup']" class="btn btn-primary" >Crear nuevo grupo </button>
+
+<div class="card " *ngFor="let  story of groups let i=index" style="margin-bottom:5px">
     <div class="card-body">
         <div class="row">
             <div class=" col-3">
-                <img src="../../../assets/img/pluma.png" width="140" height="140">
+                <img src="../../../assets/img/group.png" width="140" height="140">
             </div>
             <div class=" col-9">
                 <div class="row">
                     <h4 class="card-title">{{story.title}}</h4>
                 </div>
                 <div class="row">
-                    <a style="font-size: 14px" href="profile/{{story.user}}">{{story.user}}</a> 
+                    <a style="font-size: 14px" href="profile/{{story.master}}">{{story.master}}</a> 
                 </div>              
                 <div class="row">
-                    <p class="card-text" style="overflow:hidden;">{{story.storyText}}</p>
+                    <p class="card-text" style="overflow:hidden;">{{story.description}}</p>
                 </div>
                 <div class="row">
 
