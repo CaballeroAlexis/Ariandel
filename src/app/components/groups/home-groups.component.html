@@ -1,0 +1,28 @@
+<h3 class="home-title">Mis grupos</h3>
+
+    <button [routerLink]="['/newgroup']" class="btn" >Crear nuevo grupo </button>
+
+
+
+<div class="column" *ngFor="let  group of groups let i=index" style="margin-bottom:20px">     
+    <!-- Post-->
+    <div class="post-module hover">
+        <!-- Thumbnail-->
+        <div class="thumbnail">
+            <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+            </div>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+        </div>
+        <!-- Post Content-->
+        <div class="post-content">
+            <div class="category">grupo</div>
+                <h1 class="title">{{group.title}}</h1>
+                <a class="sub_title" href="profile/{{group.master}}">{{group.master}}</a>
+                <p class="card-description">{{group.description}}</p>
+                <button href="#" class="btn" (click)="goStory(story.id);">Ingresar </button>
+            <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-o"></i> Hace 10 min</span><span class="comments"><i class="fa fa-comments"></i><a href="#">10 comentarios</a></span></div>
+        </div>
+    </div>
+</div>

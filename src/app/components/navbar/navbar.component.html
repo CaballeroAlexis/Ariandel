@@ -6,7 +6,7 @@
     <ul class="navbar-nav ml-auto">
       <button
         *ngIf="isLogin"
-        type="button" class="btn btn-primary btn-sm" [routerLink]="['new']">Publicar</button>      
+        type="button" class="btn  btn-sm" [routerLink]="['new']">Publicar</button>      
       <li class="nav-item ">
         <a class="nav-link" [routerLink]="['home']" style="color:white;">Inicio <span class="sr-only">(current)</span></a>
       </li>
@@ -17,10 +17,10 @@
     <span class="navbar-text">
       <button (click)="login()" 
               *ngIf="!isLogin"
-              type="button" class="btn btn-primary btn-sm" [routerLink]="['login']">Ingresar</button>
+              type="button" class="btn  btn-sm" [routerLink]="['login']">Ingresar</button>
       <button (click)="salir()"
               *ngIf="isLogin"
-              type="button" class="btn btn-primary btn-sm">Salir</button>
+              type="button" class="btn btn-sm">Salir</button>
     </span>
   </div>
 </nav>

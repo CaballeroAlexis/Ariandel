@@ -36,4 +36,16 @@ export class GroupsService {
       })
     })
   }
+
+  getGroup(id){
+    return new Promise((resolve,reject) =>{
+      firebase.database().ref('/groups/'+id ).once('value')
+      .then(function(dataSnapshot) {
+        return dataSnapshot.val();
+      }).then(result =>{
+        resolve(result);
+      },
+        err=> reject(err))
+    })
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-last-stories',
@@ -15,4 +16,5 @@ export class LastStoriesComponent implements OnInit {
   goStory(idx:number){
     this.router.navigate(["/story",idx]);
   }
+
 }

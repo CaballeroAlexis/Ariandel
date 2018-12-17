@@ -23,7 +23,6 @@ export class StoryComponent implements OnInit {
      private storiesService:StoriesService, 
      private commentsService:CommentsService,
      private auth:AuthService) {
-  
   }
 
   ngOnInit() {
@@ -32,53 +31,29 @@ export class StoryComponent implements OnInit {
     this.storiesService.getStory(this.id).then((data:any)=>{
       this.story=data;
     this.commentsService.getComments(this.id).then(result=>{
-  
       if(result != null){
-    
-      
       this.comments = Object.keys(result).map(function(commentIndex){
         return {id:commentIndex,
                     answer:result[commentIndex]['answers'],
                     user:result[commentIndex]['user'],
                     idStory:result[commentIndex]['idStory']
-                  
-                  }
-        
-  
-      
-                
+                  }        
     })}
     this.auth.getAuthUser()
     .then(result =>{this.usernameAuth=result['username'];
-    console.log(this.story['user']);
-    console.log(this.usernameAuth)
+
     if(this.story['user']==this.usernameAuth){
       this.commentActivate=false;
-      console.log("false")
     }
-
     for (var key in this.comments) {
-      console.log(this.story)
       if(this.comments[key]['user']==this.usernameAuth || this.story['user']==this.usernameAuth) {
         this.commentActivate=false;
       }
-    }     }
-    
-    )
-
-    this.showComments=true;
-   
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      this.comments=result;  });  }); ;
+    }
+  })
+  this.showComments=true;
+   this.comments=result;
+  });
+  });
   }
-
 }

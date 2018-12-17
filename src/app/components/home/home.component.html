@@ -1,6 +1,13 @@
 <div class="animated fadeIn Fast" style="margin-left: 20px">
-    <div class="row">
-        <div class="col-8">
+
+    
+   <div class="row">
+        <div class="col-12">
+
+
+
+              
+            
             <mat-tab-group  style="margin-top:20px">
                 <mat-tab label="Inicio">
                     <app-last-stories [stories]="stories" ></app-last-stories>
@@ -10,10 +17,13 @@
                 <mat-tab *ngIf="user" label="Mis grupos"> <app-groups [user]="user"></app-groups>  </mat-tab>
             </mat-tab-group>
         </div>
+    </div>
+</div>
+        <!--
         <div class="col-3">
             <div class="row">
             <div class="card" style="width: 100%;margin-top:86px;border-top-left-radius: 25px;    border-top-right-radius: 25px;">
-                <div class="card-title home-title" style="background-color:#456182;color:white;border-top-left-radius: 25px;border-top-right-radius: 25px">
+                <div class="card-title home-title" style="background-color:#8a151b;color:white;border-top-left-radius: 25px;border-top-right-radius: 25px">
                     <h4 style="text-align: center;margin: 5px"> Críticos favoritos</h4>
                          
                 </div>
@@ -36,7 +46,7 @@
 
         <div class="row">
                 <div class="card" style="width: 100%;margin-top:20px;    border-top-left-radius: 25px;border-top-right-radius: 25px;">
-                    <div class="card-title home-title" style="background-color:#456182;color:white;border-top-left-radius: 25px;border-top-right-radius: 25px">
+                    <div class="card-title home-title" style="background-color:#8a151b;color:white;border-top-left-radius: 25px;border-top-right-radius: 25px">
                         <h4 style="text-align: center;margin: 5px"> Historias comentadas</h4>
                              
                     </div>
@@ -58,5 +68,6 @@
             </div>        
         </div>
     </div>
-  </div>
 
+
+</div>-->

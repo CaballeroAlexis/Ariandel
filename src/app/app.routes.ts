@@ -7,6 +7,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {AuthGuardService} from './services/auth-guard.service';
 import {NewGroupComponent} from "./components/groups/new-group/new-group.component";
+import {GroupComponent} from "./components/groups/group/group.component";
 
 const  APP_ROUTES: Routes=[
     {path:'home',component:HomeComponent},
@@ -18,6 +19,7 @@ const  APP_ROUTES: Routes=[
     },   
     {path:'story/:id',component: StoryComponent},
     {path:'newgroup',component:NewGroupComponent},
+    {path:'group/:id',component:GroupComponent},
     {path: '**', pathMatch:'full',redirectTo:'home'}
 ];
 

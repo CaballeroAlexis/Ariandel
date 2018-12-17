@@ -63,9 +63,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { NgFlashMessageService } from 'ng-flash-messages';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { GroupsComponent } from './components/groups/groups.component';
+import { GroupsComponent } from './components/groups/home-groups.component';
 import { LastStoriesComponent } from './components/last-stories/last-stories.component';
 import { NewGroupComponent } from './components/groups/new-group/new-group.component';
+import {GroupComponent} from "./components/groups/group/group.component";
+import { HorizontalMenuComponent } from './components/home/horizontal-menu/horizontal-menu.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { NewGroupComponent } from './components/groups/new-group/new-group.compo
     RegisterComponent,
     GroupsComponent,
     LastStoriesComponent,
-    NewGroupComponent,  
+    NewGroupComponent,
+    GroupComponent,
+    HorizontalMenuComponent
    
   ],
   imports: [

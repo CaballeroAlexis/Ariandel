@@ -1,15 +1,16 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {GroupsService} from '../../services/groups.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-groups',
-  templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  templateUrl: './home-groups.component.html',
+  styleUrls: ['./home-groups.component.css']
 })
 export class GroupsComponent implements OnInit {
   @Input('user') public id;
   groups:any[]=[];
-  constructor(private groupservice:GroupsService) { }
+  constructor(private groupservice:GroupsService, private router:Router) { }
 
   ngOnInit() {
    
@@ -24,15 +25,12 @@ export class GroupsComponent implements OnInit {
                     master:result[groupIndex]['master'],
                     image:result[groupIndex]['image']
                   }
-                  
-  
-      
                 }
       )}
-    
-  )
-  console.log(this.groups);
+  )}
 
+  goGroup(id){
+    this.router.navigate(["/group",id]);
   }
 
 }
